@@ -1,0 +1,17 @@
+<div id = 'errors'>
+  <%= render('layouts/errors', :object => @workshop) %>
+</div>
+<%= form_for(@workshop) do |f| %>
+    <div class="form-group">
+      <%= f.hidden_field :user_id, { :value => current_user.id } %>
+      <%= f.label :title %>
+      <%= f.text_field :title, :class => "form-control" %>
+      <%= f.label :description %>
+      <%= f.text_area :description, :rows => "4", :class => "form-control" %>
+      <%= f.label :location_id %>
+      <%= collection_select(:workshop, :location_id, Location.all, :id, :address) %><br>
+      <%= f.label :slot_id %>
+      <%= collection_select(:workshop, :slot_id, Slot.all, :id, :time) %>
+    </div>
+      <%= f.submit(:class => "btn btn-primary") %>
+<% end %>

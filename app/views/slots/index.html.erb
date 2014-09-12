@@ -1,0 +1,7 @@
+<h3> Current Time Slots </h3>
+
+<% @slots.each do |slot| %>
+  <p><%= link_to "#{slot.time}", edit_slot_path(slot) %></p>
+<%end%>
+
+<a href ='/'> Home </a>

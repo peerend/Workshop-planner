@@ -1,0 +1,12 @@
+<div id = 'errors'>
+  <%= render('layouts/errors', :object => @location) %>
+</div>
+<%= form_for(@location) do |f| %>
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= f.label :address %>
+      <%= f.text_field :address, :class => "form-control" %>
+    </div>
+  <%= f.submit(:class => "btn btn-primary") %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<h3>Current Time Slots</h3>
+<div class = "rows">
+  <div class="col-md-6">
+    <% @slots.each do |slot| %>
+      <p><%=slot.time %><p>
+      <%=link_to "Remove Time Slot", slot_path(slot), data: {method: "delete"}, :class => "btn btn-xs btn-danger" %>
+    <% end %>
+  </div>
+
+  <h3> New Time Slot </h3>
+  <%= render 'form' %>
+
+  <p><a href = "/"> Home </a></p>
+</div>

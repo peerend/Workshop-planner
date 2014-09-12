@@ -1,0 +1,12 @@
+<div id = 'errors'>
+  <%= render('layouts/errors', :object => @slot) %>
+</div>
+<%= form_for(@slot) do |f| %>
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= f.label :time %>
+      <%= f.datetime_select :time, :ampm => true, :minute_step => 15, :class => "form-control" %>
+    </div>
+  <%= f.submit(:class => "btn btn-primary") %>
+  </div>
+<% end %>
