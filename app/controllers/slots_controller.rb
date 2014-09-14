@@ -9,12 +9,11 @@ class SlotsController < ApplicationController
     @slots = Slot.all
   end
 
-
   def create
     @slot = Slot.create(slot_params)
     if @slot.save
       flash[:notice] = "Time Slot Added."
-      redirect_to slots_path
+      redirect_to new_slot_path
     else
       render 'new'
     end

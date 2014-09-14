@@ -3,7 +3,7 @@
   <div class="col-md-8">
     <% @workshops.each do |workshop| %>
       <p><%=link_to "Remove Workshop", workshop_path(workshop), data: {method: "delete"}, :class => "btn btn-xs btn-danger" %>
-      <%=workshop.title %></p>
+      <%=link_to "#{workshop.title}", edit_workshop_path(workshop) %></p>
       
     <% end %>
 

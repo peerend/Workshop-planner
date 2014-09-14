@@ -1,22 +1,9 @@
 <h3>Workshops</h3>
 
+<%= render 'sched_form' %>
 
 <% if current_user %>
   <%= link_to "Add Workshop", new_workshop_path, :class => "btn btn-success" %>
   <%= link_to "Add Time", new_slot_path, :class => "btn btn-success" %>
   <%= link_to "Add Location", new_location_path, :class => "btn btn-success" %>
 <% end %>
-
-<div class="table-responsive" >
-  <table class="table table-bordered">
-    <% Slot.all.each do |slot| %>
-      <tr><th> <%= slot.time %> </th>
-      <% Workshop.all.each do |workshop| %>
-        <% if workshop.slot_id == slot.id %>
-          <td> <a href="workshops/<%=workshop.id%>"> <%=workshop.title %></a><br> <%=workshop.location.address %> </td>
-        <% end %>
-      <% end %>
-    <% end %>
-      </tr>
-  </table>
-</div>

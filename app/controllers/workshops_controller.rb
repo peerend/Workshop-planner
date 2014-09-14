@@ -39,9 +39,8 @@ class WorkshopsController < ApplicationController
   def update
     @workshop = Workshop.find(params[:id])
     if @workshop.update(workshop_params)
-      @user = User.find(params[:user_id])
       flash[:notice]= "Your Workshop has been updated."
-      redirect_to slots_path
+      redirect_to workshop_path
     else
       flash[:notice]= "Your Workshop failed to update."
       render('show')
@@ -50,6 +49,6 @@ class WorkshopsController < ApplicationController
 
   private
     def workshop_params
-      params.require(:workshop).permit(:title, :description, :duration, :location_id, :user_id, :slot_id)
+      params.require(:workshop).permit(:title, :presenter, :description, :duration, :location_id, :user_id, :slot_id)
     end
 end

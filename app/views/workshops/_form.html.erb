@@ -8,6 +8,10 @@
       <%= f.text_field :title, :class => "form-control" %>
       <%= f.label :description %>
       <%= f.text_area :description, :rows => "4", :class => "form-control" %>
+      <%= f.label :presenter %>
+      <%= f.text_field :presenter, :class => "form-control" %>
+      <%= f.label :duration %>
+      <%= f.text_field :duration, :class => "form-control" %>
       <%= f.label :location_id %>
       <%= collection_select(:workshop, :location_id, Location.all, :id, :address) %><br>
       <%= f.label :slot_id %>

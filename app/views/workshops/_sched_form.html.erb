@@ -1,0 +1,19 @@
+<div class="table table-responsive" >
+  <table class="table table-bordered table-striped bordered">
+    <% Slot.all.each do |slot| %>
+      <tr><th> <%= slot.time %> </th>
+      <% Workshop.all.each do |workshop| %>
+        <% if workshop.slot_id == slot.id %>
+          <td> 
+          <% if current_user %>
+            <%= link_to workshop.title, edit_workshop_path(workshop) %></a><br> <%=workshop.location.name %><br> <%=workshop.presenter %><br> <%=workshop.duration%>
+          <% else %>
+            <%= link_to workshop.title, workshop_path(workshop) %></a><br> <%=workshop.location.name %><br> <%=workshop.presenter %><br> <%=workshop.duration%> 
+          <% end %>
+          </td>
+        <% end %>
+      <% end %>
+    <% end %>
+      </tr>
+  </table>
+</div>

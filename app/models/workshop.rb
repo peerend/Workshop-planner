@@ -5,5 +5,6 @@ class Workshop < ActiveRecord::Base
   belongs_to :location
 
   validates :title, :presence => true
+  validates :presenter, :presence => true
   
 end
