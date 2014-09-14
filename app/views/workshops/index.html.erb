@@ -1,11 +1,5 @@
 <h3>Workshops</h3>
 
-<ul>
-  <% @workshops.each do |workshop| %>
-    <li><strong><a href="workshops/<%=workshop.id%>"><%=workshop.title%></a></strong></li>
-  <% end %>
-</ul>
-
 
 <% if current_user %>
   <%= link_to "Add Workshop", new_workshop_path, :class => "btn btn-success" %>
@@ -19,7 +13,7 @@
       <tr><th> <%= slot.time %> </th>
       <% Workshop.all.each do |workshop| %>
         <% if workshop.slot_id == slot.id %>
-          <td> <%=workshop.title %><br> <%=workshop.location.address %> </td>
+          <td> <a href="workshops/<%=workshop.id%>"> <%=workshop.title %></a><br> <%=workshop.location.address %> </td>
         <% end %>
       <% end %>
     <% end %>

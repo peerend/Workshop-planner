@@ -1,14 +1,14 @@
-<h3>Current Workshop</h3>
+<h3>Current Workshops</h3>
 <div class = "rows">
-  <div class="col-md-6">
+  <div class="col-md-8">
     <% @workshops.each do |workshop| %>
-      <p><%=workshop.title %><p>
-      <%=link_to "Remove Workshop", workshop_path(workshop), data: {method: "delete"}, :class => "btn btn-xs btn-danger" %>
+      <p><%=link_to "Remove Workshop", workshop_path(workshop), data: {method: "delete"}, :class => "btn btn-xs btn-danger" %>
+      <%=workshop.title %></p>
+      
     <% end %>
-  </div>
 
   <h3> New Workshop </h3>
   <%= render 'form' %>
-
   <p><a href = "/"> Home </a></p>
+  </div>
 </div>

@@ -1,14 +1,15 @@
 <h3>Current Locations</h3>
 <div class = "rows">
-  <div class="col-md-6">
+  <div class="col-md-10">
     <% @locations.each do |location| %>
-      <p><%= link_to "#{location.address}", edit_location_path(location) %></p>
-      <%=link_to "Remove Location", location_path(location), data: {method: "delete"}, :class => "btn btn-xs btn-danger" %>
+      <p><%=link_to "Remove Location", location_path(location), data: {method: "delete"}, :class => "btn btn-xs btn-danger" %>
+      <%= link_to "#{location.address}", edit_location_path(location) %></p>
     <% end %>
-  </div>
+
 
   <h3> New Location </h3>
   <%= render 'form' %>
 
   <p><a href = "/"> Home </a></p>
+  </div>
 </div>
