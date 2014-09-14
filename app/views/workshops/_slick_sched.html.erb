@@ -1,0 +1,18 @@
+<%= grid(@workshops_grid) do |g|
+
+  g.column do |workshop|
+    workshop.id
+  end
+
+  g.column  do |workshop|
+    workshop.title
+  end
+
+  g.column do |workshop|
+    workshop.description
+  end
+
+  g.column do |workshop|
+    link_to('Edit', edit_workshop_path(workshop))
+  end
+end -%>

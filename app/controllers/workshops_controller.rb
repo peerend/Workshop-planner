@@ -2,6 +2,7 @@ class WorkshopsController < ApplicationController
 
   def index
     @workshops = Workshop.all
+    @workshops_grid = initialize_grid(Workshop)
   end
 
   def new
