@@ -3,7 +3,7 @@
   <div class="col-md-10">
     <% @slots.each do |slot| %>
       <p><%=link_to "Remove Time Slot", slot_path(slot), data: {method: "delete"}, :class => "btn btn-xs btn-danger" %>
-      <%=slot.time %></p>
+      <%=link_to slot.time, edit_slot_path(slot) %></p>
       
     <% end %>
   <h3> New Time Slot </h3>

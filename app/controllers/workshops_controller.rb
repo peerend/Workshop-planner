@@ -2,7 +2,10 @@ class WorkshopsController < ApplicationController
 
   def index
     @workshops = Workshop.all
-    @workshops_grid = initialize_grid(Workshop)
+    @workshops_grid = initialize_grid(Workshop,
+      :include => [:slot],
+      :order => 'id'
+    )
   end
 
   def new
@@ -15,7 +18,7 @@ class WorkshopsController < ApplicationController
   def create
     @workshop = Workshop.create(workshop_params)
     if @workshop.save
-      flash[:notice] = "Workshop Added."
+      flash[:notice] = "Workshop Added"
       redirect_to workshops_path
     else
       render 'new'
@@ -50,6 +53,7 @@ class WorkshopsController < ApplicationController
 
   private
     def workshop_params
-      params.require(:workshop).permit(:title, :presenter, :description, :duration, :location_id, :user_id, :slot_id)
+      params.require(:workshop).permit(:title, :presenter, :description, 
+                                       :duration, :location_id, :user_id, :slot_id)
     end
 end

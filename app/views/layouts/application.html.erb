@@ -6,7 +6,38 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
+<div class="container-fluid">
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#workshop-navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Home</a>
+      </div>
+      <div class="collapse navbar-collapse" id="workshop-navbar">
+        <ul class="nav navbar-nav">
+          <li><a href="/workshops/new">Add Workshop</a></li>
+          <li><a href="/locations/new">Add Location</a></li>
+          <li><a href="/slots/new">Add Time Slot</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+            <li>Logged in as <%= current_user.name %> | <%= link_to "Log Out", logout_path %></li>
+          <% else %>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Sign Up</a></li>
+          <% end %>
+        </ul>
+      </div>
+  </nav>
+
 <body>
+<%= yield %>
   <div id="notice" style="background: green; color: white; text-align:center;">
     <%= flash[:notice] %>
   </div>
@@ -15,11 +46,6 @@
     <%= flash[:alert] %>
   </div>
   <% end %>
-  <div class="container">
-    <%= render '/sessions/login' %>
-  
-    <%= yield %>
-
-  </div>
+</div>
 </body>
 </html>

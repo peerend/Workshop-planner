@@ -1,18 +1,25 @@
+<%# show_filters: :when_filtered %>
 <%= grid(@workshops_grid) do |g|
 
-  g.column do |workshop|
-    workshop.id
-  end
-
-  g.column  do |workshop|
+  g.column name:  'Workshop Title', attribute: 'title' do |workshop|
     workshop.title
   end
 
-  g.column do |workshop|
+  g.column  name:  'Description', attribute: 'description' do |workshop|
     workshop.description
   end
 
-  g.column do |workshop|
-    link_to('Edit', edit_workshop_path(workshop))
+  g.column  name:  'Time and Day', attribute: 'time', model: 'Slot' do |workshop|
+    workshop.slot.time if workshop.slot
+  end
+
+  g.column name:  'Presenter(s)', attribute: 'presenter' do |workshop|
+    workshop.presenter
+  end
+
+  if current_user
+    g.column   do |workshop|
+      link_to('Edit', edit_workshop_path(workshop))
+    end
   end
 end -%>
