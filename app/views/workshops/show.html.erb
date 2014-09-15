@@ -1,6 +1,13 @@
 <h3>Workshop Details</h3>
 
 <h4><%=@workshop.title%>
+<p><%=@workshop.description%>
 
-<p>Location: <%=@workshop.location.address%></p>
-<p>Time: <%=@workshop.slot.time%></p>
+<% if @workshop.location_id?%>
+  <p>Location: <%=@workshop.location.name%></p>
+  <p>Location: <%=@workshop.location.address%></p>
+<% end %>
+
+<% if @workshop.slot_id?%>
+  <p>Location: <%=@workshop.slot.time%></p>
+<% end %>

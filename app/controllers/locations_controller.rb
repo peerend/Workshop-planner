@@ -42,7 +42,7 @@ class LocationsController < ApplicationController
       flash[:notice]= "Your location has been updated."
       redirect_to locations_path
     else
-      flash[:notice]= "Your location failed to update."
+      flash[:alert]= "Your location failed to update."
       render('show')
     end
   end
