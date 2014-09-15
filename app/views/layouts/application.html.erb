@@ -21,17 +21,15 @@
       </div>
       <div class="collapse navbar-collapse" id="workshop-navbar">
         <ul class="nav navbar-nav">
+        <% if current_user %>
           <li><a href="/workshops/new">Add Workshop</a></li>
           <li><a href="/locations/new">Add Location</a></li>
           <li><a href="/slots/new">Add Time Slot</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <% if current_user %>
-            <li>Logged in as <%= current_user.name %> | <%= link_to "Log Out", logout_path %></li>
-          <% else %>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/signup">Sign Up</a></li>
-          <% end %>
+          <li> <%= link_to "Log Out", logout_path %></li>
+        <% else %>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/signup">Sign Up</a></li>
+        <% end %>
         </ul>
       </div>
   </nav>
