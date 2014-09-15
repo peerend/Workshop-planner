@@ -9,6 +9,10 @@
     workshop.description
   end
 
+  g.column  name:  'Location', attribute: 'location' do |workshop|
+    workshop.location.name if workshop.location
+  end
+
   g.column  name:  'Time and Day' do |workshop|
     workshop.slot.time if workshop.slot
   end
