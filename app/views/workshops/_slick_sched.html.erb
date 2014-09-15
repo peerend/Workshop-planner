@@ -9,7 +9,7 @@
     workshop.description
   end
 
-  g.column  name:  'Time and Day', attribute: 'time', model: 'Slot' do |workshop|
+  g.column  name:  'Time and Day' do |workshop|
     workshop.slot.time if workshop.slot
   end
 
