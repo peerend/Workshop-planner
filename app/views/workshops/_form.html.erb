@@ -14,11 +14,11 @@
       <%= f.text_field :duration, :class => "form-control" %>
       <% if Location.all != nil %>
         <%= f.label :location_id %>
-        <%= collection_select(:workshop, :location_id, Location.all, :id, :address) %><br>
+        <%= collection_select(:workshop, :location_id, Location.all, :id, :address, {include_blank: true}) %><br>
       <% end %>
       <% if Slot.all != nil %>
         <%= f.label :slot_id %>
-        <%= collection_select(:workshop, :slot_id, Slot.all, :id, :time) %>
+        <%= collection_select(:workshop, :slot_id, Slot.all, :id, :time, {include_blank: true}) %>
       <% end %>
     </div>
       <%= f.submit(:class => "btn btn-primary") %>

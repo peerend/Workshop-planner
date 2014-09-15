@@ -3,11 +3,15 @@
 <h4><%=@workshop.title%>
 <p><%=@workshop.description%>
 
-<% if @workshop.location_id?%>
+<% if @workshop.location %>
   <p>Location: <%=@workshop.location.name%></p>
   <p>Location: <%=@workshop.location.address%></p>
 <% end %>
 
 <% if @workshop.slot_id?%>
-  <p>Location: <%=@workshop.slot.time%></p>
+  <p>Time: <%=@workshop.slot.time%></p>
+<% end %>
+
+<% if current_user %>
+  <%= link_to "Edit", edit_workshop_path(@workshop) %>
 <% end %>
