@@ -17,6 +17,10 @@
     workshop.slot.time if workshop.slot
   end
 
+  g.column  name:  'Duration' do |workshop|
+    workshop.duration
+  end
+
   g.column name:  'Presenter(s)', attribute: 'presenter' do |workshop|
     workshop.presenter
   end
