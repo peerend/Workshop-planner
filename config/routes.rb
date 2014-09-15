@@ -9,8 +9,8 @@ root :to => 'workshops#index'
 
   resources :workshops
   resources :locations
-  resources :sessions
-  resources :users
+  resources :sessions, :only => [:new, :create, :destroy]
+  resources :users, :only => [:new, :create]
   resources :slots
   
 end
