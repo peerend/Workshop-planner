@@ -1,3 +1,5 @@
 <h2> Edit Workshop </h2>
 
 <%= render 'form' %>
+<br>
+<p><%=link_to "Remove Workshop", workshop_path(@workshop), data: {method: "delete"}, :class => "btn btn-xs btn-danger" %></p>

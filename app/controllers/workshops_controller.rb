@@ -37,7 +37,7 @@ class WorkshopsController < ApplicationController
     @workshop = Workshop.find(params[:id])
     @workshop.destroy
     flash[:alert] = "Workshop deleted."
-    redirect_to new_workshop_path
+    redirect_to root_url
   end
 
   def update
