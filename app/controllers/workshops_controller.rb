@@ -37,7 +37,7 @@ class WorkshopsController < ApplicationController
       respond_to do |format|
         format.html do
           flash[:notice] = "Workshop created."
-          redirect_to workshops_path
+          redirect_to root_path
         end
         format.json { render :json => @workshop, :status => 201 }
       end

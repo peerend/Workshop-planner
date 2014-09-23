@@ -5,11 +5,10 @@
 <%= render 'slick_sched' %>
 
 <div style='width: 800px;'>
-  <div id="custom_style" style='width: 800px; height: 400px;'></div>
+  <div id="custom_style" style='width: 1000px; height: 600px;'></div>
 </div>
 
 <script type="text/javascript">
-
 
   var mapStyle = [{"featureType":"administrative","stylers":[{"visibility":"off"}]},{"featureType":"poi","stylers":[{"visibility":"simplified"}]},{"featureType":"road","stylers":[{"visibility":"simplified"}]},{"featureType":"water","stylers":[{"visibility":"simplified"}]},{"featureType":"transit","stylers":[{"visibility":"simplified"}]},{"featureType":"landscape","stylers":[{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"visibility":"off"}]},{"featureType":"road.local","stylers":[{"visibility":"on"}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"water","stylers":[{"color":"#84afa3"},{"lightness":52}]},{"stylers":[{"saturation":-77}]},{"featureType":"road"}]
 
@@ -20,9 +19,11 @@
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       styles: mapStyle}
     }, 
+
   function(){
     markers = handler.addMarkers(<%=raw @hash.to_json%>);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
   });
+
 </script>
