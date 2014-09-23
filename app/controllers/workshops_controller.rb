@@ -11,6 +11,7 @@ class WorkshopsController < ApplicationController
       titles = []
       marker.lat location.latitude
       marker.lng location.longitude
+      titles << "Address: " + location.address
       location.workshops.each do |workshop|
         titles << workshop.title + ' '
       end
