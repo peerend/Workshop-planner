@@ -8,9 +8,13 @@ class WorkshopsController < ApplicationController
     )
     @locations = Location.all
     @hash = Gmaps4rails.build_markers(@locations) do |location, marker|
+      titles = []
       marker.lat location.latitude
       marker.lng location.longitude
-      marker.infowindow location.name
+      location.workshops.each do |workshop|
+        titles << workshop.title + ' '
+      end
+      marker.infowindow titles.join("<br>")
     end
 
     respond_to do |format|

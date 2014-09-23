@@ -6,5 +6,11 @@ class Workshop < ActiveRecord::Base
 
   validates :title, :presence => true
   validates :presenter, :presence => true
-  
+
+  def worktitles
+    location.workshop.each do |workshop|
+      workshoptitles << workshop.title
+      workshoptitles.flatten
+    end
+  end
 end
