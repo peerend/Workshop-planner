@@ -12,6 +12,11 @@ class WorkshopsController < ApplicationController
       marker.lng location.longitude
       marker.infowindow location.name
     end
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => @workshops }
+    end
   end
 
   def new
@@ -24,10 +29,18 @@ class WorkshopsController < ApplicationController
   def create
     @workshop = Workshop.create(workshop_params)
     if @workshop.save
-      flash[:notice] = "Workshop Added"
-      redirect_to workshops_path
+      respond_to do |format|
+        format.html do
+          flash[:notice] = "Workshop created."
+          redirect_to workshops_path
+        end
+        format.json { render :json => @workshop, :status => 201 }
+      end
     else
-      render 'new'
+      respond_to do |format|
+        format.html { render 'new' }
+        format.json { render :json => @workshop.errors, :status => 422 }
+      end
     end
   end
 
@@ -49,16 +62,31 @@ class WorkshopsController < ApplicationController
     @workshop.destroy
     flash[:alert] = "Workshop deleted."
     redirect_to root_url
+
+    respond_to do |format|
+      format.html do
+        flash[:notice] = "Workshop deleted."
+        redirect_to workshops_path
+      end
+      format.json { head :no_content }
+    end
   end
 
   def update
     @workshop = Workshop.find(params[:id])
     if @workshop.update(workshop_params)
-      flash[:notice]= "Your Workshop has been updated."
-      redirect_to workshop_path
+      respond_to do |format|
+        format.html do
+          flash[:notice] = "Workshop updated."
+          redirect_to workshop_path(@workshop)
+        end
+        format.json { head :no_content }
+      end
     else
-      flash[:notice]= "Your Workshop failed to update."
-      render('show')
+      respond_to do |format|
+        format.html { render 'edit' }
+        format.json { render :json => @workshop.errors, :status => 422 }
+      end
     end
   end
 

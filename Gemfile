@@ -13,6 +13,7 @@ gem "wice_grid", '3.4.2'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'factory_girl'
+gem 'rest-client'
 gem "factory_girl_rails", "~> 4.0"
 gem 'gmaps4rails'
 gem 'geocoder'

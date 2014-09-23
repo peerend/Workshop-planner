@@ -7,6 +7,11 @@ class LocationsController < ApplicationController
 
   def index
     @locations = Location.all
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => @locations }
+    end
   end
 
 
@@ -26,6 +31,11 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => @location }
+    end
   end
 
   def destroy

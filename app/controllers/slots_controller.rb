@@ -7,6 +7,11 @@ class SlotsController < ApplicationController
 
   def index
     @slots = Slot.all
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => @slots }
+    end
   end
 
   def create
@@ -25,6 +30,11 @@ class SlotsController < ApplicationController
 
   def show
     @slot = Slot.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => @slot }
+    end
   end
 
   def destroy
