@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 //= require jquery.ui.datepicker
 //= require wice_grid
+//= require underscore
+//= require gmaps/google
+//= require_tree .

@@ -15,6 +15,7 @@ gem 'autoprefixer-rails'
 gem 'factory_girl'
 gem "factory_girl_rails", "~> 4.0"
 gem 'gmaps4rails'
+gem 'geocoder'
 gem 'bcrypt'
 
 group :development do
