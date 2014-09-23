@@ -14,6 +14,7 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'factory_girl'
 gem "factory_girl_rails", "~> 4.0"
+gem 'gmaps4rails'
 gem 'bcrypt'
 
 group :development do
